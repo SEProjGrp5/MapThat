@@ -3,7 +3,7 @@
     "name": "Travel time chrome extension",
     "version": "1.0",
     "description": "Chrome Extention to add travel time to google calendar",  
-   "browser_action":{
+    "browser_action":{
        "default_popup": "popup.html"
    }
 }
