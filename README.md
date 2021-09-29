@@ -1,6 +1,13 @@
-# MapThat
+![Screenshot](MapThat.png)
 # Pyhton Application to add travel time to google calendar
-A common issue of scheduling on google calendar is that travel time between appointments are not taken into consideration.
+
+Double booking a time-slot is a common mistake that us humans make all the time! We also don't take into account that we are not FLASH and that we need some time to travel from point A to point B. While scheduling appointments on google calendar; the travel time between appointments is not taken into consideration.
+
+
 We aim to develop a tool which will read the google calendar appointments to determing the location and calculate the average travel time to the appointment from either a predetermined location or the location of the previous appointment and block the time needed on google calendar.
-We plan to implement it as a python application which will be connected to the google calendar and google maps apis and use them to read and write the calendar entries.
+
+We plan to implement it as a python application which will be connected to the google calendar and google maps. 
+
+We will be using the google calendar and google maps APIs to read and write the calendar entries.
+
 To maintan privacy of users, we will directly store the data in the users account.
