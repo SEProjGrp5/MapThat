@@ -1,67 +1,137 @@
 from __future__ import print_function
 import datetime
-import os.path
+import os
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
-import googleapiclient
+#import simplejson, urllib
+#import googleapiclient
+import requests
+#import json
+#from geopy.geocoders import Nominatim
 
-
-# If modifying these scopes, delete the file token.json.
+SCOPES = ['https://www.googleapis.com/auth/calendar']
 
 class mapThat:
     def __init__(self):
-        self.creds
-        self.events
+        self.creds=None
+        self.events=None
         self.SCOPES = ['https://www.googleapis.com/auth/calendar']
+        self.api_key_1="AIzaSyBGAQG3wYes4XkqxkDC_2uOzkgWIGCGsws" #apikey for maps distance matrix
+        self.default_location=None
+
+    def get_default_location(self):
+        address="2504 Avent Ferry rd, Raleigh NC"#input("Enter Default Location: ").replace(" ","+")
+        self.default_location = self.get_lat_log(address)
+        
+    def get_lat_log(self, address):
+        address2=address.replace(" ","+")
+
+        url = "https://maps.googleapis.com/maps/api/geocode/json?key={0}&address={1}&language=en-EN".format(self.api_key_1,str(address2))
+        r = requests.get(url)
+        '''if location==None:
+            return None'''
+        return [r.json().get("results")[0].get("geometry").get("location").get('lat'), r.json().get("results")[0].get("geometry").get("location").get('lng')]
+
+        
 
     def check_login(self):
         #This function checks if the login details of the user are available with us
+        #self.creds=None
+        cred_file=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),"json","credentials.json")
+        token_file=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),"json","token.json")
+        ##If the user has already logged in, the details are extractecd from token.js 
+        if os.path.exists(token_file):
+            self.creds = Credentials.from_authorized_user_file(token_file, SCOPES)
+        #if the user has not logged in/ his credentials have expired, the user is prompted to login and the details are stored in token.json
+        if not self.creds or not self.creds.valid:
+            if self.creds and self.creds.expired and self.creds.refresh_token:
+                self.creds.refresh(Request())
+            else:
+                flow = InstalledAppFlow.from_client_secrets_file(
+                    self.cred_file, SCOPES)
+                self.creds = flow.run_local_server(port=0)
+            # Save the credentials for the next run
+            with open(token_file, 'w') as token:
+                token.write(self.creds.to_json())
+
+    def event_manager(self):
+        service = build('calendar', 'v3', credentials=self.creds)
+        now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
+        print('Getting the upcoming 10 events')
+        events_result = service.events().list(calendarId='primary', timeMin=now, maxResults=10, singleEvents=True, orderBy='startTime').execute()
+        self.events = events_result.get('items', [])
+        if not self.events:
+            print('No upcoming events found.')
+        for event in self.events:
+            if 'description' in event:
+                if event['description']=='#Created by MapThat#':
+                    continue
+                if '#This event has been checked by MapThat#' in event['description']:
+                    continue
+
+            start = event['start'].get('dateTime', event['start'].get('date'))
+            if len(start)<20:#ignore events which last all day(do not have a time)
+                #self.events.remove(event)
+                continue
+            print(start,event['summary'])
+            start=datetime.datetime.strptime(start, "%Y-%m-%dT%H:%M:%S%z")
+            print(type(self.events))
+            print(start, event['summary'])
+            self.update_event(event,service)
+            try:
+                print("\nlocation: ", event['location'])
+                travel_time=self.get_distance(event['location'])
+                self.event_create(start,travel_time,service)
+                
+            except KeyError:
+                print("no Location")
+
+    def get_distance(self,dest):
+        url ='https://maps.googleapis.com/maps/api/distancematrix/json?'
+        dest_lat_lon=self.get_lat_log(dest)
+        if dest_lat_lon==None:
+            print("Location not Found")
+            return
+        orig = str(self.default_location[0]) + " " + str(self.default_location[1])
+        dest = str(dest_lat_lon[0]) + " " + str(dest_lat_lon[1])
+        url = "https://maps.googleapis.com/maps/api/distancematrix/json?key={0}&origins={1}&destinations={2}&mode=driving&language=en-EN&sensor=false".format(self.api_key_1,str(orig),str(dest))
+        
+        r = requests.get(url) 
+        travel_time=r.json().get('rows')[0].get("elements")[0].get("duration").get("value")
+        print("\nTravel time:")
+        print(travel_time)
+        return travel_time
+
+    def event_create(self,start,travel_time,service):
+        end=start.isoformat()
+        start=(start - datetime.timedelta(seconds=travel_time)).isoformat()
+        print(start)
+        event_result = service.events().insert(calendarId='primary',
+           body={
+               "summary": 'Travel Time',
+               "description": '#Created by MapThat#',
+               "start": {"dateTime": str(start)},
+               "end": {"dateTime": str(end)},
+           }
+       ).execute()
+        
+    def update_event(self,event,service):
+        if 'description' in event: 
+            event['description']=event['description'] + "\n#This event has been checked by MapThat#"
+        else:
+            event['description']="#This event has been checked by MapThat#"
+            
+        updated_event = service.events().update(calendarId='primary', eventId=event['id'], body=event).execute()
         
 
 
-def main():
-    
-    creds = None
-    # The file token.json stores the user's access and refresh tokens, and is
-    # created automatically when the authorization flow completes for the first
-    # time.
-    if os.path.exists('token.json'):
-        creds = Credentials.from_authorized_user_file('token.json', SCOPES)
-    # If there are no (valid) credentials available, let the user log in.
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file(
-                'credentials.json', SCOPES)
-            creds = flow.run_local_server(port=0)
-        # Save the credentials for the next run
-        with open('token.json', 'w') as token:
-            token.write(creds.to_json())
-
-    service = build('calendar', 'v3', credentials=creds)
-
-    # Call the Calendar API
-    now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
-    print('Getting the upcoming 10 events')
-    events_result = service.events().list(calendarId='primary', timeMin=now,
-                                        maxResults=10, singleEvents=True,
-                                        orderBy='startTime').execute()
-    events = events_result.get('items', [])
-
-    if not events:
-        print('No upcoming events found.')
-    for event in events:
-        start = event['start'].get('dateTime', event['start'].get('date'))
-        print(start, event['summary'])
-        try:
-            print("\nlocation: ", event['location'])
-        except KeyError:
-            print("no Location")
-
+    def driver(self):
+        self.check_login()
+        self.get_default_location()
+        self.event_manager()
 
 
 if __name__ == '__main__':
-    main()
+    mapThat().driver()
