@@ -1,5 +1,7 @@
 ![Screenshot](MapThat.png)
 # Pyhton Application to add travel time to google calendar
+![GitHub](https://img.shields.io/github/license/SEProjGrp5/MapThat)
+
 
 Double booking a time-slot is a common mistake that us humans make all the time! We also don't take into account that we are not FLASH and that we need some time to travel from point A to point B. While scheduling appointments on google calendar; the travel time between appointments is not taken into consideration.
 
