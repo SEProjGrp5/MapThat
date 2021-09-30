@@ -72,11 +72,9 @@ class mapThat:
 
     def check_login(self):
         """
-        
+        Uses API keys to check login details of the users are available with us 
         
         """
-        #This function checks if the login details of the user are available with us
-        #self.creds=None
         cred_file=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),"json","credentials.json")
         token_file=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),"json","token.json")
         
