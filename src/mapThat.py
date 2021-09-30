@@ -75,7 +75,25 @@ class mapThat:
             # Save the credentials for the next run
             with open(token_file, 'w') as token:
                 token.write(self.creds.to_json())
-       
+        
+        if  not os.path.exists(self.user_data):
+            print("mode.json not exist")
+            self.get_default_location()
+            self.get_default_mode()    
+            
+            
+        else:
+            with open(self.user_data) as json_file:
+                    data = json.load(json_file)
+                    self.mode=data['mode']
+                    print(data.keys())
+                    self.default_location=[float(self.data.get('lat',0.0)),float(self.data.get('Lng',0.0))]
+                    if self.default_location== [0.0,0.0]:
+                        print("error reading default location")
+                        self.get_default_location()
+                    print("Defaultmode of transport:" , self.mode)
+                    print("Default Location: ",self.default_location)
+
     def event_manager(self):
         service = build('calendar', 'v3', credentials=self.creds)
         now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
@@ -151,7 +169,7 @@ class mapThat:
 
     def driver(self):
         self.check_login()
-       
+        
 
 if __name__ == '__main__':
     mapThat().driver()
