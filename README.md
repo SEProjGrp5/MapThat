@@ -1,3 +1,7 @@
+<h1 align="center">
+  <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/MapThat.gif" width=800px height=300px>
+</h1>
+
 # Python Application to add travel time to google calendar
 
 [![GitHub license](https://img.shields.io/github/license/SEProjGrp5/MapThat)](https://github.com/SEProjGrp5/MapThat/blob/main/LICENSE)
@@ -8,16 +12,31 @@ Double booking a time-slot is a common mistake that us humans make all the time!
 
 We aim to develop a tool which will read the google calendar appointments to determing the location and calculate the average travel time to the appointment from either a predetermined location or the location of the previous appointment and block the time needed on google calendar.
 
-We plan to implement it as a python application which will be connected to the google calendar and google maps. 
+We have implemented it as a python application which will be connected to the google calendar and google maps. 
 
-We will be using the google calendar and google maps APIs to read and write the calendar entries.
+We have used the google calendar and google maps APIs to read and write the calendar entries.
 
 To maintan privacy of users, we will directly store the data in the users account.
 
 ## Built with:
-1.Python
-2.Google Calendar API
-3.Google Maps API
+1.Python\
+2.PHP\
+3.javascript\
+4.Google Calendar API\
+5.Google Maps API
+
+## Installations:
+
+## How to Contribute?
+
+## Future Scope:
+1. Create a chrome extension for extraction of important moodle dates and block the corresponding time for the events in google calendar.\
+2. Keep  track of the user's preferred mode of transportation i.e. the average time taken by the user to travel via bus/car/two-wheeler/train/walk.
+
+## Team Members:
+
+
+
 
 
 
