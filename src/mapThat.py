@@ -113,6 +113,10 @@ class mapThat:
                     print("Default Location: ",self.default_location)
 
     def event_manager(self):
+        """
+        Checks whether the event is new or old
+        
+        """
         service = build('calendar', 'v3', credentials=self.creds)
         now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
         print('Getting the upcoming 10 events')
