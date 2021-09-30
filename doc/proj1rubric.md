@@ -21,8 +21,8 @@
 | other automated analysis tools | | |
 | test cases exist | |  |
 | test cases are routinely executed | |  |
-| the files CONTRIBUTING.md lists coding standards and lots of tips on how to extend the system without screwing things up | | |
-| issues are discussed before they are closed | |  |
+| the files CONTRIBUTING.md lists coding standards and lots of tips on how to extend the system without screwing things up | 3 | https://github.com/SEProjGrp5/MapThat/blob/main/CONTRIBUTING.md |
+| issues are discussed before they are closed | 3 | https://github.com/SEProjGrp5/MapThat/issues |
 | Chat channel: exists | |  |
 | test cases:.a large proportion of the issues related to handling failing cases. | | |
 | evidence that the whole team is using the same tools: everyone can get to all tools and files | |  |
