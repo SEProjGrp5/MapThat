@@ -169,7 +169,18 @@ class mapThat:
 
     def driver(self):
         self.check_login()
+<<<<<<< Updated upstream
         
+=======
+        flag=int(input("1.Check Calendar\n2.Change Mode\n3.Change Default Location"))
+        if flag==1:    
+            self.event_manager()
+        if flag == 2:
+            self.get_default_mode()
+        if flag == 3:
+            self.get_default_location()
+
+>>>>>>> Stashed changes
 
 if __name__ == '__main__':
     mapThat().driver()
