@@ -16,6 +16,7 @@ class mapThat:
         self.events=None
         self.SCOPES = ['https://www.googleapis.com/auth/calendar']
         self.api_key_1=None #apikey for maps distance matrix
+        #the api key is stored as a local json. refer to readme for more instructions
         self.default_location=None
         self.mode=None
         self.mode_flag=0
@@ -102,11 +103,12 @@ class mapThat:
                     self.mode=data['mode']
                     #self.default_location=[float(self.data.get('lat',0.0)),float(self.data.get('Lng',0.0))]
                     self.default_location=self.get_lat_log(data['add'])
+                    print("Defaultmode of transport:" , self.mode)
+                    print("Default Location: ",data['add'].replace("+"," "))
                     if self.default_location== [0.0,0.0]:
                         print("error reading default location")
                         self.get_default_location()
-                    print("Defaultmode of transport:" , self.mode)
-                    print("Default Location: ",self.default_location)
+                    
 
     def event_manager(self):
         service = build('calendar', 'v3', credentials=self.creds)
@@ -126,19 +128,17 @@ class mapThat:
             start = event['start'].get('dateTime', event['start'].get('date'))
             if len(start)<20:#ignore events which last all day(do not have a time)
                 continue
-            print(start,event['summary'])
             start=datetime.datetime.strptime(start, "%Y-%m-%dT%H:%M:%S%z")
-            print(type(self.events))
-            print(start, event['summary'])
+            print("\n\n\n\n", start, event['summary'])
             self.update_event(event,service)
-            try:
-                print("\nlocation: ", event['location'])
+            if 'location' in event:
+                print("location: ", event['location'])
                 if self.mode_flag==2:
                     self.mode=input("Enter exact string out of following:[DRIVING, WALKING, BICYCLING, TRANSIT]\n")
                 travel_time=self.get_distance(event['location'])
                 self.event_create(start,travel_time,service)
                 
-            except KeyError:
+            else:
                 print("no Location")
 
     def get_distance(self,dest):
@@ -153,13 +153,14 @@ class mapThat:
         
         r = requests.get(url) 
         travel_time=r.json().get('rows')[0].get("elements")[0].get("duration").get("value")
-        print("\nTravel time:")
+        print("Travel time:")
         print(travel_time)
         return travel_time
 
     def event_create(self,start,travel_time,service):
         end=start.isoformat()
         start=(start - datetime.timedelta(seconds=travel_time)).isoformat()
+        print("travel event created starting:")
         print(start)
         event_result = service.events().insert(calendarId='primary',
            body={
