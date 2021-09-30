@@ -1,28 +1,42 @@
+
 from __future__ import print_function
+
 import datetime
+import json
 import os
-from googleapiclient.discovery import build
-from google_auth_oauthlib.flow import InstalledAppFlow
+import sys
+
+import pytz
+import requests
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
-import requests
-import json
+from google_auth_oauthlib.flow import InstalledAppFlow
+from googleapiclient.discovery import build
 
 SCOPES = ['https://www.googleapis.com/auth/calendar']
 
+
 class mapThat:
     def __init__(self):
-        self.creds=None
-        self.events=None
+        self.creds = None
+        self.events = None
         self.SCOPES = ['https://www.googleapis.com/auth/calendar']
-        self.api_key_1=None #apikey for maps distance matrix
-        #the api key is stored as a local json. refer to readme for more instructions
-        self.default_location=None
-        self.mode=None
-        self.mode_flag=0
-        self.data={}
-        self.user_data=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),"json","user_data.json")
-    
+        self.api_key_1 = None  # apikey for maps distance matrix
+        # the api key is stored as a local json. refer to readme for more instructions
+        self.default_location = None
+        self.mode = None
+        self.data = {}
+        self.user_data = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                                      "json", "user_data.json")
+        self.service = None
+        self.prev_time = None
+        self.prev_location = None
+        self.time_bw_event = 3600
+        self.prev_event_id = None
+        self.prev_event_travel = 0
+        self.prev_event_traversed = 1
+        self.prev_travel_event_id = None
+
     def get_api_key(self):
         key_data=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),"json","key.json")
         if  not os.path.exists(key_data):
