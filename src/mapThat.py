@@ -8,7 +8,7 @@ from google.oauth2.credentials import Credentials
 #import simplejson, urllib
 #import googleapiclient
 import requests
-#import json
+import json
 #from geopy.geocoders import Nominatim
 
 SCOPES = ['https://www.googleapis.com/auth/calendar']
@@ -20,10 +20,19 @@ class mapThat:
         self.SCOPES = ['https://www.googleapis.com/auth/calendar']
         self.api_key_1="AIzaSyBGAQG3wYes4XkqxkDC_2uOzkgWIGCGsws" #apikey for maps distance matrix
         self.default_location=None
+        self.mode=None
+        self.mode_flag=0
+        self.data={}
+        self.user_data=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),"json","user_data.json")
 
     def get_default_location(self):
-        address="2504 Avent Ferry rd, Raleigh NC"#input("Enter Default Location: ").replace(" ","+")
+        address=input("Enter Default Location: ").replace(" ","+")
         self.default_location = self.get_lat_log(address)
+        self.data['lat']=str(self.default_location[0])
+        self.data['Lng']=str(self.default_location[1])
+        with open(self.user_data, 'w') as outfile:
+            json.dump(self.data, outfile)
+        
         
     def get_lat_log(self, address):
         address2=address.replace(" ","+")
@@ -34,6 +43,15 @@ class mapThat:
             return None'''
         return [r.json().get("results")[0].get("geometry").get("location").get('lat'), r.json().get("results")[0].get("geometry").get("location").get('lng')]
 
+    def get_default_mode(self):
+        self.mode_flag=int(input("1. Select a default mode of transport\n2.Select mode of transport for each event\n"))
+        if self.mode_flag==1:
+            self.mode=input("Enter exact string out of following:[DRIVING, WALKING, BICYCLING, TRANSIT]\n")
+        else:
+            self.mode=None
+        self.data['mode']=self.mode
+        with open(self.user_data, 'w') as outfile:
+            json.dump(self.data, outfile)
         
 
     def check_login(self):
@@ -41,6 +59,7 @@ class mapThat:
         #self.creds=None
         cred_file=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),"json","credentials.json")
         token_file=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),"json","token.json")
+        
         ##If the user has already logged in, the details are extractecd from token.js 
         if os.path.exists(token_file):
             self.creds = Credentials.from_authorized_user_file(token_file, SCOPES)
@@ -52,10 +71,11 @@ class mapThat:
                 flow = InstalledAppFlow.from_client_secrets_file(
                     self.cred_file, SCOPES)
                 self.creds = flow.run_local_server(port=0)
+                print("Login Successfull")
             # Save the credentials for the next run
             with open(token_file, 'w') as token:
                 token.write(self.creds.to_json())
-
+       
     def event_manager(self):
         service = build('calendar', 'v3', credentials=self.creds)
         now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
@@ -82,6 +102,8 @@ class mapThat:
             self.update_event(event,service)
             try:
                 print("\nlocation: ", event['location'])
+                if self.mode_flag==2:
+                    self.mode=input("Enter exact string out of following:[DRIVING, WALKING, BICYCLING, TRANSIT]\n")
                 travel_time=self.get_distance(event['location'])
                 self.event_create(start,travel_time,service)
                 
@@ -96,7 +118,7 @@ class mapThat:
             return
         orig = str(self.default_location[0]) + " " + str(self.default_location[1])
         dest = str(dest_lat_lon[0]) + " " + str(dest_lat_lon[1])
-        url = "https://maps.googleapis.com/maps/api/distancematrix/json?key={0}&origins={1}&destinations={2}&mode=driving&language=en-EN&sensor=false".format(self.api_key_1,str(orig),str(dest))
+        url = "https://maps.googleapis.com/maps/api/distancematrix/json?key={0}&origins={1}&destinations={2}&mode={3}&language=en-EN&sensor=false".format(self.api_key_1,str(orig),str(dest),self.mode)
         
         r = requests.get(url) 
         travel_time=r.json().get('rows')[0].get("elements")[0].get("duration").get("value")
@@ -129,9 +151,7 @@ class mapThat:
 
     def driver(self):
         self.check_login()
-        self.get_default_location()
-        self.event_manager()
-
+       
 
 if __name__ == '__main__':
     mapThat().driver()
