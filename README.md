@@ -1,5 +1,6 @@
 # Python Application to add travel time to google calendar
 
+[![GitHub license](https://img.shields.io/github/license/SEProjGrp5/MapThat)](https://github.com/SEProjGrp5/MapThat/blob/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/SEProjGrp5/MapThat)](https://github.com/SEProjGrp5/MapThat/issues)
 [![DOI](https://zenodo.org/badge/408263207.svg)](https://zenodo.org/badge/latestdoi/408263207)
 
