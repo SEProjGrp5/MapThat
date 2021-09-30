@@ -18,10 +18,11 @@ Examples of behavior that contributes to a positive environment for our
 community include:
 
 * Demonstrating empathy and kindness toward other people
+* Using welcoming and inclusive language with others.
 * Being respectful of differing opinions, viewpoints, and experiences
 * Giving and gracefully accepting constructive feedback
 * Accepting responsibility and apologizing to those affected by our mistakes,
-  and learning from the experience
+  and learning from the experience 
 * Focusing on what is best not just for us as individuals, but for the
   overall community
 
@@ -33,6 +34,8 @@ Examples of unacceptable behavior include:
 * Public or private harassment
 * Publishing others' private information, such as a physical or email
   address, without their explicit permission
+* Abuse of the reporting process to intentionally harass or exclude others
+* Advocating for, or encouraging, any of the above behavior
 * Other conduct which could reasonably be considered inappropriate in a
   professional setting
 
