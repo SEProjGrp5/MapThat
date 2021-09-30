@@ -151,6 +151,10 @@ class mapThat:
                 print("no Location")
 
     def get_distance(self,dest):
+        """
+        This function uses the location from the google calendar and exracts the distance and travel time through google maps.
+        
+        """
         url ='https://maps.googleapis.com/maps/api/distancematrix/json?'
         dest_lat_lon=self.get_lat_log(dest)
         if dest_lat_lon==None:
