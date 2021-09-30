@@ -36,16 +36,18 @@ class mapThat:
         self.prev_event_travel = 0
         self.prev_event_traversed = 1
         self.prev_travel_event_id = None
-
+        
     def get_api_key(self):
-        key_data=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),"json","key.json")
-        if  not os.path.exists(key_data):
-            print("Api Key file does not exist. Please refer to readme to add key and restart program")
-            exit()
+        key_data = os.path.join(os.path.dirname(os.path.dirname
+                                                (os.path.abspath(__file__))), "json", "key.json")
+        if not os.path.exists(key_data):
+            print(
+                '''Api Key file does not exist. Please refer to 
+                  readme to add key and restart program''')
+            sys.exit("Thank You for Using MapThat")
         with open(key_data) as json_file:
             data = json.load(json_file)
-            self.api_key_1=data["key"]
-            print(self.api_key_1)
+            self.api_key_1 = data["key"]
         
 
     def get_default_location(self):
@@ -210,3 +212,5 @@ class mapThat:
 
 if __name__ == '__main__':
     mapThat().driver()
+
+
