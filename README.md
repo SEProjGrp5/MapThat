@@ -1,5 +1,5 @@
 ![Screenshot](MapThat.png)
-# Pyhton Application to add travel time to google calendar
+# Python Application to add travel time to google calendar
 ![GitHub](https://img.shields.io/github/license/SEProjGrp5/MapThat)
 [![GitHub issues](https://img.shields.io/github/issues/SEProjGrp5/MapThat)](https://github.com/SEProjGrp5/MapThat/issues)
 
