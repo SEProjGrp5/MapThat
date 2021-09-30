@@ -17,3 +17,17 @@
 | Use of style checkers | | config files in GH |
 | Use of code formatters | | Config files in GH |
 | Use of syntax checkers | | Config files in GH |
+| Use of code coverage | |  |
+| other automated analysis tools | | |
+| test cases exist | |  |
+| test cases are routinely executed | |  |
+| the files CONTRIBUTING.md lists coding standards and lots of tips on how to extend the system without screwing things up | | |
+| issues are discussed before they are closed | |  |
+| Chat channel: exists | |  |
+| test cases:.a large proportion of the issues related to handling failing cases. | | |
+| evidence that the whole team is using the same tools: everyone can get to all tools and files | |  |
+| evidence that the whole team is using the same tools (e.g. tutor can ask anyone to share screen, they demonstrate the system running on their computer) | | |
+| Use of syntax checkers | |  |
+
+
+
