@@ -4,3 +4,5 @@
 | :------------- | :-----------------------: | -----------: |
 | workload is spread over the whole team | ()  | ()    |
 | Number of commits  |              | | |
+| Number of commits: by different people  |              | | |
+
