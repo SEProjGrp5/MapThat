@@ -5,11 +5,8 @@ from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
-#import simplejson, urllib
-#import googleapiclient
 import requests
 import json
-#from geopy.geocoders import Nominatim
 
 SCOPES = ['https://www.googleapis.com/auth/calendar']
 
@@ -18,20 +15,34 @@ class mapThat:
         self.creds=None
         self.events=None
         self.SCOPES = ['https://www.googleapis.com/auth/calendar']
-        self.api_key_1="AIzaSyBGAQG3wYes4XkqxkDC_2uOzkgWIGCGsws" #apikey for maps distance matrix
+        self.api_key_1=None #apikey for maps distance matrix
         self.default_location=None
         self.mode=None
         self.mode_flag=0
         self.data={}
         self.user_data=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),"json","user_data.json")
+    
+    def get_api_key(self):
+        key_data=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),"json","key.json")
+        if  not os.path.exists(key_data):
+            print("Api Key file does not exist. Please refer to readme to add key and restart program")
+            exit()
+        with open(key_data) as json_file:
+            data = json.load(json_file)
+            self.api_key_1=data["key"]
+            print(self.api_key_1)
+        
 
     def get_default_location(self):
         address=input("Enter Default Location: ").replace(" ","+")
-        self.default_location = self.get_lat_log(address)
-        self.data['lat']=str(self.default_location[0])
-        self.data['Lng']=str(self.default_location[1])
+        if os.path.exists(self.user_data):
+            with open(self.user_data) as infile:
+                self.data=json.load(infile)
+        self.data['add']=str(address)
         with open(self.user_data, 'w') as outfile:
             json.dump(self.data, outfile)
+        self.default_location = self.get_lat_log(address)
+        
         
         
     def get_lat_log(self, address):
@@ -39,8 +50,6 @@ class mapThat:
 
         url = "https://maps.googleapis.com/maps/api/geocode/json?key={0}&address={1}&language=en-EN".format(self.api_key_1,str(address2))
         r = requests.get(url)
-        '''if location==None:
-            return None'''
         return [r.json().get("results")[0].get("geometry").get("location").get('lat'), r.json().get("results")[0].get("geometry").get("location").get('lng')]
 
     def get_default_mode(self):
@@ -49,14 +58,16 @@ class mapThat:
             self.mode=input("Enter exact string out of following:[DRIVING, WALKING, BICYCLING, TRANSIT]\n")
         else:
             self.mode=None
-        self.data['mode']=self.mode
+        if os.path.exists(self.user_data):
+            with open(self.user_data) as infile:
+                self.data=json.load(infile)
+        self.data['mode']=self.mode   
         with open(self.user_data, 'w') as outfile:
             json.dump(self.data, outfile)
         
 
     def check_login(self):
         #This function checks if the login details of the user are available with us
-        #self.creds=None
         cred_file=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),"json","credentials.json")
         token_file=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),"json","token.json")
         
@@ -85,9 +96,12 @@ class mapThat:
         else:
             with open(self.user_data) as json_file:
                     data = json.load(json_file)
-                    self.mode=data['mode']
+                    
                     print(data.keys())
-                    self.default_location=[float(self.data.get('lat',0.0)),float(self.data.get('Lng',0.0))]
+                    print(data)
+                    self.mode=data['mode']
+                    #self.default_location=[float(self.data.get('lat',0.0)),float(self.data.get('Lng',0.0))]
+                    self.default_location=self.get_lat_log(data['add'])
                     if self.default_location== [0.0,0.0]:
                         print("error reading default location")
                         self.get_default_location()
@@ -111,7 +125,6 @@ class mapThat:
 
             start = event['start'].get('dateTime', event['start'].get('date'))
             if len(start)<20:#ignore events which last all day(do not have a time)
-                #self.events.remove(event)
                 continue
             print(start,event['summary'])
             start=datetime.datetime.strptime(start, "%Y-%m-%dT%H:%M:%S%z")
@@ -168,10 +181,8 @@ class mapThat:
 
 
     def driver(self):
+        self.get_api_key()
         self.check_login()
-<<<<<<< Updated upstream
-        
-=======
         flag=int(input("1.Check Calendar\n2.Change Mode\n3.Change Default Location"))
         if flag==1:    
             self.event_manager()
@@ -180,7 +191,7 @@ class mapThat:
         if flag == 3:
             self.get_default_location()
 
->>>>>>> Stashed changes
+
 
 if __name__ == '__main__':
     mapThat().driver()
