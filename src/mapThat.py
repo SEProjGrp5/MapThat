@@ -15,6 +15,10 @@ SCOPES = ['https://www.googleapis.com/auth/calendar']
 
 class mapThat:
     def __init__(self):
+        """
+        Init class which initializes all variables 
+        
+        """
         self.creds=None
         self.events=None
         self.SCOPES = ['https://www.googleapis.com/auth/calendar']
@@ -26,6 +30,10 @@ class mapThat:
         self.user_data=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),"json","user_data.json")
 
     def get_default_location(self):
+        """
+        Function returns default location       
+        
+        """
         address=input("Enter Default Location: ").replace(" ","+")
         self.default_location = self.get_lat_log(address)
         self.data['lat']=str(self.default_location[0])
@@ -35,6 +43,10 @@ class mapThat:
         
         
     def get_lat_log(self, address):
+        """
+        Function returns latitude longitude values 
+        
+        """
         address2=address.replace(" ","+")
 
         url = "https://maps.googleapis.com/maps/api/geocode/json?key={0}&address={1}&language=en-EN".format(self.api_key_1,str(address2))
@@ -44,6 +56,10 @@ class mapThat:
         return [r.json().get("results")[0].get("geometry").get("location").get('lat'), r.json().get("results")[0].get("geometry").get("location").get('lng')]
 
     def get_default_mode(self):
+        """
+        Function retrieves default mode of transports      
+        
+        """
         self.mode_flag=int(input("1. Select a default mode of transport\n2.Select mode of transport for each event\n"))
         if self.mode_flag==1:
             self.mode=input("Enter exact string out of following:[DRIVING, WALKING, BICYCLING, TRANSIT]\n")
@@ -55,6 +71,10 @@ class mapThat:
         
 
     def check_login(self):
+        """
+        
+        
+        """
         #This function checks if the login details of the user are available with us
         #self.creds=None
         cred_file=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),"json","credentials.json")
