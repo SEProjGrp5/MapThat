@@ -10,6 +10,10 @@
 | DOI badge: exists | 3 | evidence in [Readme](https://github.com/SEProjGrp5/MapThat/blob/main/README.md)|
 | Docs: doco generated , format not ugly | 3 | in GH |
 | Docs: what: point descriptions of each class/function (in isolation) | 3 | in GH|
-| Docs: how: for common use cases X,Y,Z mini-tutorials showing worked examples on how to do X,Y,Z | 3 | |
+| Docs: how: for common use cases X,Y,Z mini-tutorials showing worked examples on how to do X,Y,Z | 3 | in GH |
 | Docs: why: docs tell a story, motivate the whole thing, deliver a punchline that makes you want to rush out and use the thing | 3 | https://github.com/SEProjGrp5/MapThat/tree/main/doc |
 | Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code | 3 | https://github.com/SEProjGrp5/MapThat/blob/main/README.md |
+| Use of version control tools | 3 | https://github.com/SEProjGrp5/MapThat |
+| Use of style checkers | | config files in GH |
+| Use of code formatters | | Config files in GH |
+| Use of syntax checkers | | Config files in GH |
