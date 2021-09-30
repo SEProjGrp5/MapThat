@@ -19,31 +19,31 @@ We have used the google calendar and google maps APIs to read and write the cale
 To maintan privacy of users, we will directly store the data in the users account.
 
 ## Built with:
-1.Python\
-2.PHP\
-3.javascript\
-4.Google Calendar API\
+1.Python \
+2.PHP \
+3.javascript \
+4.Google Calendar API \
 5.Google Maps API
 
 ## Installations:
 
-### Following Steps to be done on Google Cloud console:
-1. Create a Project\
-2. Setup Billing\
-3. Enable geocoding API and distancematrix API\
-4. generate API key-\
-    Refer to the following link https://developers.google.com/maps/documentation/geocoding/get-api-key
-6. Store the API key in the following format-\
-    File name: key.json\
-    File Content: {"key": "your api key here"}\
+**Following Steps to be done on Google Cloud console:**
+1. Create a Project 
+2. Setup Billing 
+3. Enable geocoding API and distancematrix API
+4. generate API key-
+    Refer to [this](https://developers.google.com/maps/documentation/geocoding/get-api-key) link for more information about the same.
+6. Store the API key in the following format-
+    File name: key.json \
+    File Content: {"key": "your api key here"} \
     **Key needs to be stored in the json folder.**
 
 
 ## How to Contribute?
-
+The [CONTRIBUTING.md](https://github.com/SEProjGrp5/MapThat/blob/main/CONTRIBUTING.md) given in this repository has instructions on how to contribute to this repo. Kindly refer to this file and our [Code of Conduct guidelines](https://github.com/SEProjGrp5/MapThat/blob/main/CODE_OF_CONDUCT.md).
 
 ## Future Scope:
-1. Create a chrome extension for extraction of important moodle dates and block the corresponding time for the events in google calendar.\
+1. Create a chrome extension for extraction of important moodle dates and block the corresponding time for the events in google calendar.
 2. Keep  track of the user's preferred mode of transportation i.e. the average time taken by the user to travel via bus/car/two-wheeler/train/walk.
 
 ## Team Members:
