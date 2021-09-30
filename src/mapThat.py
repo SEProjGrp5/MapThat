@@ -86,7 +86,6 @@ class mapThat:
             with open(self.user_data) as json_file:
                     data = json.load(json_file)
                     self.mode=data['mode']
-                    print(data.keys())
                     self.default_location=[float(self.data.get('lat',0.0)),float(self.data.get('Lng',0.0))]
                     if self.default_location== [0.0,0.0]:
                         print("error reading default location")
