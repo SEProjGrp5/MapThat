@@ -171,6 +171,10 @@ class mapThat:
         return travel_time
 
     def event_create(self,start,travel_time,service):
+        """
+        This function creates the event on your google calendar.
+        
+        """
         end=start.isoformat()
         start=(start - datetime.timedelta(seconds=travel_time)).isoformat()
         print(start)
