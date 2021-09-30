@@ -80,7 +80,7 @@ class mapThat:
                 self.creds.refresh(Request())
             else:
                 flow = InstalledAppFlow.from_client_secrets_file(
-                    self.cred_file, SCOPES)
+                    cred_file, SCOPES)
                 self.creds = flow.run_local_server(port=0)
                 print("Login Successfull")
             # Save the credentials for the next run
