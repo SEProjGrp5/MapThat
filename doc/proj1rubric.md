@@ -28,6 +28,8 @@
 | evidence that the whole team is using the same tools: everyone can get to all tools and files | |  |
 | evidence that the whole team is using the same tools (e.g. tutor can ask anyone to share screen, they demonstrate the system running on their computer) | | |
 | Use of syntax checkers | |  |
+| evidence that the members of the team are working across multiple places in the code base
+short release cycles | |  |
 
 
 
