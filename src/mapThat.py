@@ -1,4 +1,3 @@
-
 from __future__ import print_function
 import datetime
 import json
@@ -158,6 +157,75 @@ class mapThat:
         self.events = events_result.get('items', [])
         if not self.events:
             print('No upcoming events found.')
+
+     def check_events(self):
+        """
+        this checks each event from the calendar
+
+        Returns
+        -------
+        None.
+
+        """
+        for event in self.events:
+            start = event['start'].get('dateTime', event['start'].get('date'))
+            if len(start) < 20:  # ignore events which last all day(do not have a time)
+                self.update_event(event)
+                continue
+            print("\n\n\n\n", start, event['summary'])
+            print("traversed?", str(self.prev_event_traversed))
+            if 'description' in event:
+                if event['description'] == '#Created by MapThat#':
+                    self.prev_event_travel = 1
+                    self.prev_travel_event_id = event['id']
+                    print("travel event")
+                    continue
+                if ('#This event has been checked by MapThat#' in event['description'] 
+                    and self.prev_event_traversed == 1):
+                    self.prev_time = datetime.datetime.strptime(
+                        (event['end'].get('dateTime', event['end'].get('date'))),
+                        "%Y-%m-%dT%H:%M:%S%z")
+                    if 'location' in event:
+                        self.prev_location = event['location']
+                    self.prev_event_traversed = 1
+                    self.prev_event_travel = 0
+                    print("traversed event without change in prev event")
+                    continue
+            print("prev event not travel and not traversed without change")
+            if self.prev_event_travel == 1 and self.prev_travel_event_id not in [None]:
+                print("delete travel event")
+                self.service.events().delete(calendarId='primary',
+                                             eventId=self.prev_travel_event_id).execute()
+
+            start = datetime.datetime.strptime(start, "%Y-%m-%dT%H:%M:%S%z")
+            self.prev_event_traversed = 0
+            self.update_event(event)
+            time_diff = ((start-self.prev_time).total_seconds())
+
+            if 'location' in event:
+                print("location: ", event['location'])
+                if self.mode is None:
+                    self.mode = input(
+                        '''Enter exact string out of following:
+                            [DRIVING, WALKING, BICYCLING, TRANSIT]\n''')
+                if time_diff >= 3600:
+                    src = self.default_location
+                else:
+                    src = self.default_location
+                    if self.prev_location not in [None]:
+                        src = self.get_lat_log(self.prev_location)
+
+                travel_time = self.get_distance(event['location'], src)
+                self.event_create(start, travel_time)
+                self.prev_location = event['location']
+            else:
+                print("no Location")
+                self.prev_location = None
+            self.prev_time = datetime.datetime.strptime(
+                (event['end'].get('dateTime', event['end'].get('date'))), "%Y-%m-%dT%H:%M:%S%z")
+            self.prev_event_travel = 0
+            self.prev_event_id = None
+            self.prev_travel_event_id = None
 
 
     def event_manager(self):
