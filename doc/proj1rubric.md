@@ -21,8 +21,8 @@ sum of self assessment score = 79/81
 | Use of syntax checkers | 3 | Config files in GH |
 | Use of code coverage | 2 |  |
 | other automated analysis tools | 2 | |
-| test cases exist | 3 |  |
-| test cases are routinely executed | 3 |  |
+| test cases exist | 3 |  https://github.com/SEProjGrp5/MapThat/blob/main/test/test_cases.py |
+| test cases are routinely executed | 3 | https://github.com/SEProjGrp5/MapThat/blob/main/test/test_cases.py |
 | the files CONTRIBUTING.md lists coding standards and lots of tips on how to extend the system without screwing things up | 3 | https://github.com/SEProjGrp5/MapThat/blob/main/CONTRIBUTING.md |
 | issues are discussed before they are closed | 3 | https://github.com/SEProjGrp5/MapThat/issues |
 | Chat channel: exists | 3  |  |
