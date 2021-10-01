@@ -42,12 +42,13 @@ To maintan privacy of users, we will directly store the data in the users accoun
 4.Google Maps API
 
 # INSTALLATIONS
-Follow the instructuions given below and you are good to go!! \
+Follow the instructuions given below and you are good to go!! 
 ## Prerequisites
 1. You'll need python on your device. If you don't have it install it from [here](https://www.python.org/downloads/).
-2. Install the packages needed for the project \
-    $ pip install -r requirements.txt
-    
+2. Install the packages needed for the project 
+    ```sh 
+    pip install -r requirements.txt
+    ```
 
 
 **Following Steps to be done on Google Cloud console:**
