@@ -1,5 +1,4 @@
 from __future__ import print_function
-
 import datetime
 import json
 import os
@@ -16,13 +15,7 @@ SCOPES = ['https://www.googleapis.com/auth/calendar']
 
 
 class mapThat:
-    """
-    This class runs the mapThat application
-    """
     def __init__(self):
-        """
-        This is the init function. It defines all global variables.
-        """
         self.creds = None
         self.events = None
         self.SCOPES = ['https://www.googleapis.com/auth/calendar']
@@ -41,35 +34,21 @@ class mapThat:
         self.prev_event_travel = 0
         self.prev_event_traversed = 1
         self.prev_travel_event_id = None
-
+        
     def get_api_key(self):
-        """
-        This fucntion extracts the api key from the json file
-
-        Returns
-        -------
-        None.
-
-        """
         key_data = os.path.join(os.path.dirname(os.path.dirname
                                                 (os.path.abspath(__file__))), "json", "key.json")
         if not os.path.exists(key_data):
             print(
-                '''Api Key file does not exist. Please refer to readme to add key and restart program''')
+                '''Api Key file does not exist. Please refer to 
+                  readme to add key and restart program''')
             sys.exit("Thank You for Using MapThat")
         with open(key_data) as json_file:
             data = json.load(json_file)
             self.api_key_1 = data["key"]
+        
 
     def get_default_location(self):
-        """
-        this accepts the default locatin from the user and stores it into the json file
-
-        Returns
-        -------
-        None.
-
-        """
         address = input("Enter Default Location: ").replace(" ", "+")
         if os.path.exists(self.user_data):
             with open(self.user_data) as infile:
@@ -79,24 +58,12 @@ class mapThat:
             json.dump(self.data, outfile)
         self.default_location = self.get_lat_log(address)
         self.prev_location = self.default_location
-
+        
+        
     def get_lat_log(self, address):
-        """
-        This function converst a textual address to a set of coordinates
-
-        Parameters
-        ----------
-        address : String
-            the location for which coordinates are needed.
-
-        Returns
-        -------
-        list
-            the latitude and longitude of the given address.
-
-        """
         address2 = address.replace(" ", "+")
-        url = '''https://maps.googleapis.com/maps/api/geocode/json?key={0}&address={1}&language=en-EN'''.format(self.api_key_1, str(address2))
+        url = '''https://maps.googleapis.com/maps/api/geocode/json?key={0}
+        &address={1}&language=en-EN'''.format(self.api_key_1, str(address2))
         r = requests.get(url)
         return [r.json().get("results")[0].
                 get("geometry").
@@ -105,14 +72,6 @@ class mapThat:
                 r.json().get("results")[0].get("geometry").get("location").get('lng')]
 
     def get_default_mode(self):
-        """
-        this acceots the default mode of transport from the user and stores it ot the json file
-
-        Returns
-        -------
-        None.
-
-        """
         mode_flag = int(input(
             "1. Select a default mode of transport\n2.Select mode of transport for each event\n"))
         if mode_flag == 1:
@@ -128,17 +87,8 @@ class mapThat:
         self.data['mode'] = self.mode
         with open(self.user_data, 'w') as outfile:
             json.dump(self.data, outfile)
-
+        
     def get_default_time_bw_events(self):
-        """
-        This accepts the maximum time between events wherein the user would go directly from one 
-        event to the other and stors it to the json file
-
-        Returns
-        -------
-        None.
-
-        """
         self.time_bw_event = int(input(
             '''Enter the max time in mins between 2 events to go directly 
              from one event to another:\n'''))*60
@@ -148,17 +98,8 @@ class mapThat:
         self.data['time_bw_event'] = self.time_bw_event
         with open(self.user_data, 'w') as outfile:
             json.dump(self.data, outfile)
-
+                  
     def check_login(self):
-        """
-        This checks whether the login credentials are available locally
-
-        Returns
-        -------
-        None.
-
-        """
-        # This function checks if the login details of the user are available with us
         cred_file = os.path.join(os.path.dirname(os.path.dirname(
             os.path.abspath(__file__))), "json", "credentials.json")
         token_file = os.path.join(os.path.dirname(os.path.dirname(
@@ -181,15 +122,8 @@ class mapThat:
             with open(token_file, 'w') as token:
                 token.write(self.creds.to_json())
 
-    def check_user_data(self):
-        """
-        this checks if the user data is present locally
 
-        Returns
-        -------
-        None.
-
-        """
+     def check_user_data(self):
         if not os.path.exists(self.user_data):
             print("User data does not exist")
             self.get_default_location()
@@ -198,6 +132,8 @@ class mapThat:
         else:
             with open(self.user_data) as json_file:
                 data = json.load(json_file)
+                print(data.keys())
+                print(data)
                 self.mode = data['mode']
                 self.time_bw_event = int(data['time_bw_event'])
                 self.default_location = self.get_lat_log(data['add'])
@@ -209,15 +145,8 @@ class mapThat:
                     print("error reading default location")
                     self.get_default_location()
 
-    def get_event(self):
-        """
-        this extracts the events from the user's calendar
 
-        Returns
-        -------
-        None.
-
-        """
+     def get_event(self):
         self.service = build('calendar', 'v3', credentials=self.creds)
         now = datetime.datetime.utcnow().isoformat() + 'Z'
         self.prev_time = datetime.datetime.utcnow().replace(tzinfo=pytz.utc)
@@ -229,7 +158,7 @@ class mapThat:
         if not self.events:
             print('No upcoming events found.')
 
-    def check_events(self):
+     def check_events(self):
         """
         this checks each event from the calendar
 
@@ -244,10 +173,12 @@ class mapThat:
                 self.update_event(event)
                 continue
             print("\n\n\n\n", start, event['summary'])
+            print("traversed?", str(self.prev_event_traversed))
             if 'description' in event:
                 if event['description'] == '#Created by MapThat#':
                     self.prev_event_travel = 1
                     self.prev_travel_event_id = event['id']
+                    print("travel event")
                     continue
                 if ('#This event has been checked by MapThat#' in event['description'] 
                     and self.prev_event_traversed == 1):
@@ -258,8 +189,11 @@ class mapThat:
                         self.prev_location = event['location']
                     self.prev_event_traversed = 1
                     self.prev_event_travel = 0
+                    print("traversed event without change in prev event")
                     continue
+            print("prev event not travel and not traversed without change")
             if self.prev_event_travel == 1 and self.prev_travel_event_id not in [None]:
+                print("delete travel event")
                 self.service.events().delete(calendarId='primary',
                                              eventId=self.prev_travel_event_id).execute()
 
@@ -272,7 +206,8 @@ class mapThat:
                 print("location: ", event['location'])
                 if self.mode is None:
                     self.mode = input(
-                        '''Enter exact string out of following:[DRIVING, WALKING, BICYCLING, TRANSIT]\n''')
+                        '''Enter exact string out of following:
+                            [DRIVING, WALKING, BICYCLING, TRANSIT]\n''')
                 if time_diff >= 3600:
                     src = self.default_location
                 else:
@@ -292,31 +227,20 @@ class mapThat:
             self.prev_event_id = None
             self.prev_travel_event_id = None
 
-    def get_distance(self, dest, src):
-        """
-        this gets the distace matrix which includes the travel time to the event
 
-        Parameters
-        ----------
-        dest : String
-            address of location for event.
-        src : list
-            coordinates of source address.
 
-        Returns
-        -------
-        int
-            travel time in seconds.
-
-        """
+    def get_distance(self,dest):
         url = 'https://maps.googleapis.com/maps/api/distancematrix/json?'
         dest_lat_lon = self.get_lat_log(dest)
+        print(src)
+        print(dest)
         if dest_lat_lon is None:
             print("Location not Found")
             return 0
         orig = str(src[0]) + " " + str(src[1])
         dest = str(dest_lat_lon[0]) + " " + str(dest_lat_lon[1])
-        url = '''https://maps.googleapis.com/maps/api/distancematrix/json?key={0}&origins={1}&destinations={2}&mode={3}&language=en-EN&sensor=false'''.format(
+        url = '''https://maps.googleapis.com/maps/api/distancematrix/json?key={0}
+        &origins={1}&destinations={2}&mode={3}&language=en-EN&sensor=false'''.format(
             self.api_key_1, str(orig), str(dest), self.mode)
         r = requests.get(url)
         travel_time = r.json().get('rows')[0].get("elements")[
@@ -325,23 +249,8 @@ class mapThat:
         print(travel_time)
         return travel_time
 
-    def event_create(self, start, travel_time):
-        """
-        This creates the travel time event to the user's calendar
-
-        Parameters
-        ----------
-        start : datetime
-            the start time of the event whose location is being read.
-        travel_time : int
-            the travel time to the event in seconds.
-
-        Returns
-        -------
-        None.
-
-        """
-        end = start.isoformat()
+    def event_create(self,start,travel_time,service):
+       end = start.isoformat()
         start = (start - datetime.timedelta(seconds=travel_time)).isoformat()
         print("travel event created starting:")
         print(start)
@@ -353,60 +262,28 @@ class mapThat:
                                                         "end": {"dateTime": str(end)},
                                                     }
                                                     ).execute()
-
-    def update_event(self, event):
-        """
-        This updates the current event to add a string which prevents mapThat from processing
-        the event again
-
-        Parameters
-        ----------
-        event : dictionary
-            the details of the event being edited.
-
-        Returns
-        -------
-        None.
-
-        """
-        if 'description' in event:
-            event['description'] = event['description'] + \
-                "\n#This event has been checked by MapThat#"
+        
+    def update_event(self,event,service):
+        if 'description' in event: 
+            event['description']=event['description'] + "\n#This event has been checked by MapThat#"
         else:
-            event['description'] = "#This event has been checked by MapThat#"
-        updated_event = self.service.events().update(
-            calendarId='primary', eventId=event['id'], body=event).execute()
+            event['description']="#This event has been checked by MapThat#"
+            
+        updated_event = service.events().update(calendarId='primary', eventId=event['id'], body=event).execute()
+        
+
 
     def driver(self):
-        """
-        This is the driver function.
-        it drives the whole application.
+        self.get_api_key()
+        self.check_login()
+        flag=int(input("1.Check Calendar\n2.Change Mode\n3.Change Default Location"))
+        if flag==1:    
+            self.event_manager()
+        if flag == 2:
+            self.get_default_mode()
+        if flag == 3:
+            self.get_default_location()
 
-        Returns
-        -------
-        None.
-
-        """
-        flag_loop = 1
-        while flag_loop == 1:
-            self.get_api_key()
-            self.check_login()
-            self.check_user_data()
-            flag = int(input('''1.Check Calendar\n2.Change Mode\n3.Change Default Location\n4.Change max time in mins between 2 events to go directly from one event to another\n5. Exit'''))
-            if flag == 1:
-                self.get_event()
-                self.check_events()
-            elif flag == 2:
-                self.get_default_mode()
-            elif flag == 3:
-                self.get_default_location()
-            elif flag == 4:
-                self.get_default_time_bw_events()
-            elif flag == 5:
-                print("Thank You for Using MapThat")
-                flag_loop = 0
-            else:
-                print("incorrect input")
 
 
 if __name__ == '__main__':
