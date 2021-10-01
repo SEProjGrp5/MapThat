@@ -19,7 +19,7 @@ sum of self assessment score = 79/81
 | Use of style checkers | 3 | [Pylint] [https://github.com/SEProjGrp5/MapThat/blob/main/doc/Pylint%20Execution%20Result.jpeg] was used to check for code style |
 | Use of code formatters | 3 | [Pylint] [ https://github.com/SEProjGrp5/MapThat/blob/main/doc/Pylint%20Execution%20Result.jpeg]  was used to check for code format |
 | Use of syntax checkers | 3 | [Pylint] [ https://github.com/SEProjGrp5/MapThat/blob/main/doc/Pylint%20Execution%20Result.jpeg]  was used to check for code syntax |
-| Use of code coverage | 2 |  |
+| Use of code coverage | 2 | [Pylint] [https://github.com/SEProjGrp5/MapThat/blob/main/doc/Pylint%20Execution%20Result.jpeg] was used to check for code style |
 | other automated analysis tools | 2 | |
 | test cases exist | 3 |  https://github.com/SEProjGrp5/MapThat/blob/main/test/test_cases.py |
 | test cases are routinely executed | 3 | https://github.com/SEProjGrp5/MapThat/blob/main/test/test_cases.py |
