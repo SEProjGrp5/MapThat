@@ -62,11 +62,11 @@ The [CONTRIBUTING.md](https://github.com/SEProjGrp5/MapThat/blob/main/CONTRIBUTI
 2. Keep track of the user's preferred mode of transportation i.e. the average time taken by the user to travel via bus/car/two-wheeler/train/walk.
 
 # TEAM MEMBERS
-- Anant Gadodia (agadodi@ncsu.edu)
-- Anmolika Goyal (agoyal4@ncsu.edu)
-- Shreya Someswar Karra (sskarra@ncsu.edu)
-- Shubhangi Jain (sjain29@ncsu.edu)
-- Srujana Marne Shiva Rao (smarnes@ncsu.edu)
+- [Anant Gadodia (agadodi@ncsu.edu)](https://github.com/antgad)
+- [Anmolika Goyal (agoyal4@ncsu.edu)](https://github.com/AnmolikaGoyal)
+- [Shreya Someswar Karra (sskarra@ncsu.edu)](https://github.com/sskarra1234)
+- [Shubhangi Jain (sjain29@ncsu.edu)](https://github.com/shubhangij12)
+- [Srujana Marne Shiva Rao (smarnes@ncsu.edu)](https://github.com/srujanarao)
 
 
 
