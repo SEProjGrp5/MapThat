@@ -22,6 +22,10 @@ To maintan privacy of users, we will directly store the data in the users accoun
 
 # FEATURES
 
+# VISUAL REPRESENTATION
+
+<a href="https://www.youtube.com/watch?v=EBHrUYNMrJs" target="_blank"><img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/screenshot.PNG" width="450" alt="KDD promo video"/></a>
+
 
 # BUILT WITH
 1.Python \
