@@ -2,6 +2,8 @@
   <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/MAPTHAT.gif.gif" width=800px height=300px>
 </h1>
 
+### *If you and time have a spat, use MapThat*
+
 # Python Application to add travel time to google calendar
 
 [![GitHub license](https://img.shields.io/github/license/SEProjGrp5/MapThat)](https://github.com/SEProjGrp5/MapThat/blob/main/LICENSE)
@@ -21,6 +23,10 @@ We have used the google calendar and google maps APIs to read and write the cale
 To maintan privacy of users, we will directly store the data in the users account.
 
 # FEATURES
+
+# VISUAL REPRESENTATION
+
+<a href="https://www.youtube.com/watch?v=EBHrUYNMrJs" target="_blank"><img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/screenshot.PNG" width="450" alt="Visual Representation for MapThat"/></a>
 
 
 # BUILT WITH
@@ -58,7 +64,11 @@ The [CONTRIBUTING.md](https://github.com/SEProjGrp5/MapThat/blob/main/CONTRIBUTI
 2. Keep track of the user's preferred mode of transportation i.e. the average time taken by the user to travel via bus/car/two-wheeler/train/walk.
 
 # TEAM MEMBERS
-
+- [Anant Gadodia (agadodi@ncsu.edu)](https://github.com/antgad)
+- [Anmolika Goyal (agoyal4@ncsu.edu)](https://github.com/AnmolikaGoyal)
+- [Shreya Someswar Karra (sskarra@ncsu.edu)](https://github.com/sskarra1234)
+- [Shubhangi Jain (sjain29@ncsu.edu)](https://github.com/shubhangij12)
+- [Srujana Marne Shiva Rao (smarnes@ncsu.edu)](https://github.com/srujanarao)
 
 
 
