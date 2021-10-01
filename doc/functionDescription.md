@@ -9,3 +9,9 @@ get_lat_log(self, address):
 
 get_default_mode(self):
 - this accepts the default mode of transport from the user and stores it ot the json file
+
+get_default_time_bw_events(self):
+- This accepts the maximum time between events wherein the user would go directly from one event to the other and stors it to the json file
+
+check_login(self):
+- This checks whether the login credentials are available locally
