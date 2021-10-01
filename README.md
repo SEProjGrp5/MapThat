@@ -23,6 +23,12 @@ We have used the google calendar and google maps APIs to read and write the cale
 To maintan privacy of users, we will directly store the data in the users account.
 
 # FEATURES
+1. Get travel time to a location from the location of the previous event(within a preset timeframe) or a default location
+2. Choose between various modes of transport
+3. Block of the travel time on your calendar to make sure you take the it into account while setting up other appointments
+4. Travel time gets updated if the previous appointment affects the current appointment.
+5. Keep Track on total time spent on travel which will help plan your day better
+
 
 # VISUAL REPRESENTATION
 
