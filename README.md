@@ -34,6 +34,18 @@ To maintan privacy of users, we will directly store the data in the users accoun
 
 <a href="https://www.youtube.com/watch?v=EBHrUYNMrJs" target="_blank"><img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/screenshot.PNG" width="450" alt="Visual Representation for MapThat"/></a>
 
+# USE CASES IN THE VIDEO
+
+## Case 1: 
+A boy hasn’t considered the travel time from his house to his lecture. He is assuming he would reach on time but misses his class.
+
+If he had used MapThat, he would’ve known the exact bus timings and the time he needs to leave via his calendar.
+
+## Case 2: 
+Mr. Jacobs had scheduled two back-to-back meetings without considering the locations of the meetings.
+
+In MapThat, there’ll be a functionality which would stop you from scheduling the meeting consecutively if they aren’t in the same building.
+
 
 # BUILT WITH
 1.Python \
