@@ -1,5 +1,7 @@
 <b><h1> Project 1 Rubric </h1></b>
-	
+
+
+sum of self assessment score = 79/81
 | Notes| Self Assessment Score| Evidence |
 | -----| ----- | ------- |
 | workload is spread over the whole team (one team member is often Xtimes more productive than the others,but nevertheless, here is a track record that everyone is contributing a lot)| 3|Evidence in GH https://github.com/SEProjGrp5/MapThat/commits/main |
@@ -20,7 +22,7 @@
 | Use of code coverage | 2 |  |
 | other automated analysis tools | 2 | |
 | test cases exist | 3 |  |
-| test cases are routinely executed | 2 |  |
+| test cases are routinely executed | 3 |  |
 | the files CONTRIBUTING.md lists coding standards and lots of tips on how to extend the system without screwing things up | 3 | https://github.com/SEProjGrp5/MapThat/blob/main/CONTRIBUTING.md |
 | issues are discussed before they are closed | 3 | https://github.com/SEProjGrp5/MapThat/issues |
 | Chat channel: exists | 3  |  |
