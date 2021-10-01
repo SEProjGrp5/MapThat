@@ -1,3 +1,4 @@
+
 from __future__ import print_function
 import datetime
 import json
@@ -121,6 +122,30 @@ class mapThat:
             # Save the credentials for the next run
             with open(token_file, 'w') as token:
                 token.write(self.creds.to_json())
+
+
+     def check_user_data(self):
+        if not os.path.exists(self.user_data):
+            print("User data does not exist")
+            self.get_default_location()
+            self.get_default_mode()
+            self.get_default_time_bw_events()
+        else:
+            with open(self.user_data) as json_file:
+                data = json.load(json_file)
+                print(data.keys())
+                print(data)
+                self.mode = data['mode']
+                self.time_bw_event = int(data['time_bw_event'])
+                self.default_location = self.get_lat_log(data['add'])
+                print("Default mode of transport:", self.mode)
+                print("Default Location: ", data['add'].replace("+", " "))
+                print("Max time in mins between 2 events to go directly from one event to another:",
+                      str(self.time_bw_event))
+                if self.default_location == "":
+                    print("error reading default location")
+                    self.get_default_location()
+
 
     def event_manager(self):
         service = build('calendar', 'v3', credentials=self.creds)
