@@ -67,7 +67,15 @@ The [CONTRIBUTING.md](https://github.com/SEProjGrp5/MapThat/blob/main/CONTRIBUTI
 
 # FUTURE SCOPE
 1. Create a chrome extension for extraction of important moodle dates and block the corresponding time for the events in google calendar.
-2. Keep track of the user's preferred mode of transportation i.e. the average time taken by the user to travel via bus/car/two-wheeler/train/walk.
+2. Auto select the user's preferred mode of transportation i.e. the average time taken by the user to travel via bus/car/two-wheeler/train/walk based on the user's selection bhistory
+3. Give Alerts when it is time to leave
+4. Give alerts in case of conflict
+5. Develop a UI
+6. Set up cronjonb for Python automation
+7. Update travel time when event is updated
+8. Connect to other calendar apps
+9. Extract location based on event title/description in cases where it is not explicitly defined
+10. Set work location and use it as default during working hours
 
 # TEAM MEMBERS
 - [Anant Gadodia (agadodi@ncsu.edu)](https://github.com/antgad)
