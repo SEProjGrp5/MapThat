@@ -63,11 +63,16 @@ class mapThat:
         
         
     def get_lat_log(self, address):
-        address2=address.replace(" ","+")
-
-        url = "https://maps.googleapis.com/maps/api/geocode/json?key={0}&address={1}&language=en-EN".format(self.api_key_1,str(address2))
+        address2 = address.replace(" ", "+")
+        url = '''https://maps.googleapis.com/maps/api/geocode/json?key={0}
+        &address={1}&language=en-EN'''.format(self.api_key_1, str(address2))
         r = requests.get(url)
-        return [r.json().get("results")[0].get("geometry").get("location").get('lat'), r.json().get("results")[0].get("geometry").get("location").get('lng')]
+        return [r.json().get("results")[0].
+                get("geometry").
+                get("location").
+                get('lat'),
+                r.json().get("results")[0].get("geometry").get("location").get('lng')]
+
 
     def get_default_mode(self):
         self.mode_flag=int(input("1. Select a default mode of transport\n2.Select mode of transport for each event\n"))
@@ -212,5 +217,3 @@ class mapThat:
 
 if __name__ == '__main__':
     mapThat().driver()
-
-
