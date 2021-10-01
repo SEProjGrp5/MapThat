@@ -1,6 +1,5 @@
 
 from __future__ import print_function
-
 import datetime
 import json
 import os
@@ -73,17 +72,20 @@ class mapThat:
                 get('lat'),
                 r.json().get("results")[0].get("geometry").get("location").get('lng')]
 
-
     def get_default_mode(self):
-        self.mode_flag=int(input("1. Select a default mode of transport\n2.Select mode of transport for each event\n"))
-        if self.mode_flag==1:
-            self.mode=input("Enter exact string out of following:[DRIVING, WALKING, BICYCLING, TRANSIT]\n")
+        mode_flag = int(input(
+            "1. Select a default mode of transport\n2.Select mode of transport for each event\n"))
+        if mode_flag == 1:
+            self.mode = input(
+                "Enter exact string out of following:[DRIVING, WALKING, BICYCLING, TRANSIT]\n")
+        elif mode_flag == 2:
+            self.mode = None
         else:
-            self.mode=None
+            self.get_default_mode()
         if os.path.exists(self.user_data):
             with open(self.user_data) as infile:
-                self.data=json.load(infile)
-        self.data['mode']=self.mode   
+                self.data = json.load(infile)
+        self.data['mode'] = self.mode
         with open(self.user_data, 'w') as outfile:
             json.dump(self.data, outfile)
         
