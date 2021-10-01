@@ -30,7 +30,7 @@ sum of self assessment score = 79/81
 | evidence that the whole team is using the same tools: everyone can get to all tools and files | 3 | Everyone has the code set up on their systems |
 | evidence that the whole team is using the same tools (e.g. tutor can ask anyone to share screen, they demonstrate the system running on their computer) | 3 | Everyone has the code set up on their systems |
 | evidence that the members of the team are working across multiple places in the code base | 3 |  different team members were responsible for different functionality of the code and different parts of the documentation|
-short release cycles | 3 |  |
+short release cycles | 3 | https://github.com/SEProjGrp5/MapThat/pulse |
 
 
 
