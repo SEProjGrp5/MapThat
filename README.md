@@ -65,6 +65,43 @@ Follow the instructuions given below and you are good to go!!
   
 **3. Run command- python MapThat.py**
 
+# WORKING MODEL
+<details>
+  <summary>Working Model of the project </summary>
+  <details>
+  1. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG1.jpeg"><br/>
+    <br/>
+  2. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG2.jpeg" ><br/>
+    <br/>
+  3. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG3.jpeg" ><br/>
+    <br/>
+  4. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG4.jpeg" ><br/>
+    <br/>
+  5. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG5.jpeg" ><br/>
+    <br/>
+  6. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG6.jpeg" ><br/>
+    <br/>
+  7. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG7.jpeg" ><br/>
+    <br/>
+  8. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG8.jpeg" ><br/>
+    <br/>
+  9. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG9.jpeg" ><br/>
+    <br/>
+  10. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG10.jpeg" ><br/>
+    <br/>
+  11. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG11.jpeg" ><br/>
+    <br/>
+  12. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG12.jpeg" ><br/>
+    <br/>
+  13. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG13.jpeg" ><br/>
+    <br/>
+  14. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG14.jpeg" ><br/>
+    <br/>
+  15. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG15.jpeg" ><br/>
+    <br/>
+  16 <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG16.jpeg" ><br/>
+    <br/>
+</details>
 
 ## How to Contribute?
 The [CONTRIBUTING.md](https://github.com/SEProjGrp5/MapThat/blob/main/CONTRIBUTING.md) given in this repository has instructions on how to contribute to this repo. Kindly refer to this file and our [Code of Conduct guidelines](https://github.com/SEProjGrp5/MapThat/blob/main/CODE_OF_CONDUCT.md).
