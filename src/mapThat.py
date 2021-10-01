@@ -89,7 +89,17 @@ class mapThat:
         with open(self.user_data, 'w') as outfile:
             json.dump(self.data, outfile)
         
-
+    def get_default_time_bw_events(self):
+        self.time_bw_event = int(input(
+            '''Enter the max time in mins between 2 events to go directly 
+             from one event to another:\n'''))*60
+        if os.path.exists(self.user_data):
+            with open(self.user_data) as infile:
+                self.data = json.load(infile)
+        self.data['time_bw_event'] = self.time_bw_event
+        with open(self.user_data, 'w') as outfile:
+            json.dump(self.data, outfile)
+                  
     def check_login(self):
         #This function checks if the login details of the user are available with us
         cred_file=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),"json","credentials.json")
