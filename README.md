@@ -114,9 +114,15 @@ Follow the instructuions given below and you are good to go!!
   16 <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG16.jpeg" ><br/>
     <br/>
 </details>
+</details>
 
-## How to Contribute?
+# HOW TO CONTRIBUTE?
 The [CONTRIBUTING.md](https://github.com/SEProjGrp5/MapThat/blob/main/CONTRIBUTING.md) given in this repository has instructions on how to contribute to this repo. Kindly refer to this file and our [Code of Conduct guidelines](https://github.com/SEProjGrp5/MapThat/blob/main/CODE_OF_CONDUCT.md).
+
+- Reporting Bugs
+- Suggesting enhances
+- Pull request
+
 
 # FUTURE SCOPE
 1. Create a chrome extension for extraction of important moodle dates and block the corresponding time for the events in google calendar.
