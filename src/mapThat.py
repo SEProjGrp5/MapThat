@@ -1,4 +1,3 @@
-
 from __future__ import print_function
 import datetime
 import json
@@ -101,14 +100,16 @@ class mapThat:
             json.dump(self.data, outfile)
                   
     def check_login(self):
-        #This function checks if the login details of the user are available with us
-        cred_file=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),"json","credentials.json")
-        token_file=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),"json","token.json")
-        
-        ##If the user has already logged in, the details are extractecd from token.js 
+        cred_file = os.path.join(os.path.dirname(os.path.dirname(
+            os.path.abspath(__file__))), "json", "credentials.json")
+        token_file = os.path.join(os.path.dirname(os.path.dirname(
+            os.path.abspath(__file__))), "json", "token.json")
+        # If the user has already logged in, the details are extractecd from token.js
         if os.path.exists(token_file):
-            self.creds = Credentials.from_authorized_user_file(token_file, SCOPES)
-        #if the user has not logged in/ his credentials have expired, the user is prompted to login and the details are stored in token.json
+            self.creds = Credentials.from_authorized_user_file(
+                token_file, SCOPES)
+        # if the user has not logged in/ his credentials have expired, 
+        #the user is prompted to login and the details are stored in token.json
         if not self.creds or not self.creds.valid:
             if self.creds and self.creds.expired and self.creds.refresh_token:
                 self.creds.refresh(Request())
@@ -120,28 +121,6 @@ class mapThat:
             # Save the credentials for the next run
             with open(token_file, 'w') as token:
                 token.write(self.creds.to_json())
-        
-        if  not os.path.exists(self.user_data):
-            print("mode.json not exist")
-            self.get_default_location()
-            self.get_default_mode()    
-            
-            
-        else:
-            with open(self.user_data) as json_file:
-                    data = json.load(json_file)
-                    
-                    print(data.keys())
-                    print(data)
-                    self.mode=data['mode']
-                    #self.default_location=[float(self.data.get('lat',0.0)),float(self.data.get('Lng',0.0))]
-                    self.default_location=self.get_lat_log(data['add'])
-                    print("Defaultmode of transport:" , self.mode)
-                    print("Default Location: ",data['add'].replace("+"," "))
-                    if self.default_location== [0.0,0.0]:
-                        print("error reading default location")
-                        self.get_default_location()
-                    
 
     def event_manager(self):
         service = build('calendar', 'v3', credentials=self.creds)
@@ -229,3 +208,4 @@ class mapThat:
 
 if __name__ == '__main__':
     mapThat().driver()
+
