@@ -147,6 +147,19 @@ class mapThat:
                     self.get_default_location()
 
 
+     def get_event(self):
+        self.service = build('calendar', 'v3', credentials=self.creds)
+        now = datetime.datetime.utcnow().isoformat() + 'Z'
+        self.prev_time = datetime.datetime.utcnow().replace(tzinfo=pytz.utc)
+        print('Getting the upcoming 10 events')
+        events_result = self.service.events().list(calendarId='primary', timeMin=now,
+                                                   maxResults=10, singleEvents=True, 
+                                                   orderBy='startTime').execute()
+        self.events = events_result.get('items', [])
+        if not self.events:
+            print('No upcoming events found.')
+
+
     def event_manager(self):
         service = build('calendar', 'v3', credentials=self.creds)
         now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
@@ -233,4 +246,3 @@ class mapThat:
 
 if __name__ == '__main__':
     mapThat().driver()
-
