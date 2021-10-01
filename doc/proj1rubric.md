@@ -14,22 +14,21 @@
 | Docs: why: docs tell a story, motivate the whole thing, deliver a punchline that makes you want to rush out and use the thing | 3 | https://github.com/SEProjGrp5/MapThat/tree/main/doc |
 | Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code | 3 | https://github.com/SEProjGrp5/MapThat/blob/main/README.md |
 | Use of version control tools | 3 | https://github.com/SEProjGrp5/MapThat |
-| Use of style checkers | | config files in GH |
-| Use of code formatters | | Config files in GH |
-| Use of syntax checkers | | Config files in GH |
-| Use of code coverage | |  |
-| other automated analysis tools | | |
-| test cases exist | |  |
-| test cases are routinely executed | |  |
+| Use of style checkers | 3 | config files in GH |
+| Use of code formatters | 3 | Config files in GH |
+| Use of syntax checkers | 3 | Config files in GH |
+| Use of code coverage | 2 |  |
+| other automated analysis tools | 2 | |
+| test cases exist | 3 |  |
+| test cases are routinely executed | 2 |  |
 | the files CONTRIBUTING.md lists coding standards and lots of tips on how to extend the system without screwing things up | 3 | https://github.com/SEProjGrp5/MapThat/blob/main/CONTRIBUTING.md |
 | issues are discussed before they are closed | 3 | https://github.com/SEProjGrp5/MapThat/issues |
-| Chat channel: exists | |  |
-| test cases:.a large proportion of the issues related to handling failing cases. | | |
-| evidence that the whole team is using the same tools: everyone can get to all tools and files | |  |
-| evidence that the whole team is using the same tools (e.g. tutor can ask anyone to share screen, they demonstrate the system running on their computer) | | |
-| Use of syntax checkers | |  |
-| evidence that the members of the team are working across multiple places in the code base
-short release cycles | |  |
+| Chat channel: exists | 3  |  |
+| test cases:.a large proportion of the issues related to handling failing cases. | 3 | |
+| evidence that the whole team is using the same tools: everyone can get to all tools and files | 3 |  |
+| evidence that the whole team is using the same tools (e.g. tutor can ask anyone to share screen, they demonstrate the system running on their computer) | 3 | |
+| evidence that the members of the team are working across multiple places in the code base | 3 |  |
+short release cycles | 3 |  |
 
 
 
