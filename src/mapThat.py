@@ -51,15 +51,15 @@ class mapThat:
         
 
     def get_default_location(self):
-        address=input("Enter Default Location: ").replace(" ","+")
+        address = input("Enter Default Location: ").replace(" ", "+")
         if os.path.exists(self.user_data):
             with open(self.user_data) as infile:
-                self.data=json.load(infile)
-        self.data['add']=str(address)
+                self.data = json.load(infile)
+        self.data['add'] = str(address)
         with open(self.user_data, 'w') as outfile:
             json.dump(self.data, outfile)
         self.default_location = self.get_lat_log(address)
-        
+        self.prev_location = self.default_location
         
         
     def get_lat_log(self, address):
