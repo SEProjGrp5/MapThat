@@ -228,49 +228,23 @@ class mapThat:
             self.prev_travel_event_id = None
 
 
-    def event_manager(self):
-        service = build('calendar', 'v3', credentials=self.creds)
-        now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
-        print('Getting the upcoming 10 events')
-        events_result = service.events().list(calendarId='primary', timeMin=now, maxResults=10, singleEvents=True, orderBy='startTime').execute()
-        self.events = events_result.get('items', [])
-        if not self.events:
-            print('No upcoming events found.')
-        for event in self.events:
-            if 'description' in event:
-                if event['description']=='#Created by MapThat#':
-                    continue
-                if '#This event has been checked by MapThat#' in event['description']:
-                    continue
-
-            start = event['start'].get('dateTime', event['start'].get('date'))
-            if len(start)<20:#ignore events which last all day(do not have a time)
-                continue
-            start=datetime.datetime.strptime(start, "%Y-%m-%dT%H:%M:%S%z")
-            print("\n\n\n\n", start, event['summary'])
-            self.update_event(event,service)
-            if 'location' in event:
-                print("location: ", event['location'])
-                if self.mode_flag==2:
-                    self.mode=input("Enter exact string out of following:[DRIVING, WALKING, BICYCLING, TRANSIT]\n")
-                travel_time=self.get_distance(event['location'])
-                self.event_create(start,travel_time,service)
-                
-            else:
-                print("no Location")
 
     def get_distance(self,dest):
-        url ='https://maps.googleapis.com/maps/api/distancematrix/json?'
-        dest_lat_lon=self.get_lat_log(dest)
-        if dest_lat_lon==None:
+        url = 'https://maps.googleapis.com/maps/api/distancematrix/json?'
+        dest_lat_lon = self.get_lat_log(dest)
+        print(src)
+        print(dest)
+        if dest_lat_lon is None:
             print("Location not Found")
-            return
-        orig = str(self.default_location[0]) + " " + str(self.default_location[1])
+            return 0
+        orig = str(src[0]) + " " + str(src[1])
         dest = str(dest_lat_lon[0]) + " " + str(dest_lat_lon[1])
-        url = "https://maps.googleapis.com/maps/api/distancematrix/json?key={0}&origins={1}&destinations={2}&mode={3}&language=en-EN&sensor=false".format(self.api_key_1,str(orig),str(dest),self.mode)
-        
-        r = requests.get(url) 
-        travel_time=r.json().get('rows')[0].get("elements")[0].get("duration").get("value")
+        url = '''https://maps.googleapis.com/maps/api/distancematrix/json?key={0}
+        &origins={1}&destinations={2}&mode={3}&language=en-EN&sensor=false'''.format(
+            self.api_key_1, str(orig), str(dest), self.mode)
+        r = requests.get(url)
+        travel_time = r.json().get('rows')[0].get("elements")[
+            0].get("duration").get("value")
         print("Travel time:")
         print(travel_time)
         return travel_time
