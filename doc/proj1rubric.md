@@ -16,9 +16,9 @@ sum of self assessment score = 79/81
 | Docs: why: docs tell a story, motivate the whole thing, deliver a punchline that makes you want to rush out and use the thing | 3 | https://github.com/SEProjGrp5/MapThat/tree/main/doc |
 | Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code | 3 | https://github.com/SEProjGrp5/MapThat/blob/main/README.md |
 | Use of version control tools | 3 | https://github.com/SEProjGrp5/MapThat |
-| Use of style checkers | 3 | Pylint [ https://github.com/SEProjGrp5/MapThat/blob/main/doc/Pylint%20Execution%20Result.jpeg] was used to check for code style |
-| Use of code formatters | 3 | Pylint [ https://github.com/SEProjGrp5/MapThat/blob/main/doc/Pylint%20Execution%20Result.jpeg]  was used to check for code format |
-| Use of syntax checkers | 3 | Pylint [ https://github.com/SEProjGrp5/MapThat/blob/main/doc/Pylint%20Execution%20Result.jpeg]  was used to check for code syntax |
+| Use of style checkers | 3 | [Pylint] [https://github.com/SEProjGrp5/MapThat/blob/main/doc/Pylint%20Execution%20Result.jpeg] was used to check for code style |
+| Use of code formatters | 3 | [Pylint] [ https://github.com/SEProjGrp5/MapThat/blob/main/doc/Pylint%20Execution%20Result.jpeg]  was used to check for code format |
+| Use of syntax checkers | 3 | [Pylint] [ https://github.com/SEProjGrp5/MapThat/blob/main/doc/Pylint%20Execution%20Result.jpeg]  was used to check for code syntax |
 | Use of code coverage | 2 |  |
 | other automated analysis tools | 2 | |
 | test cases exist | 3 |  https://github.com/SEProjGrp5/MapThat/blob/main/test/test_cases.py |
