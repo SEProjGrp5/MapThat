@@ -49,18 +49,21 @@ Follow the instructuions given below and you are good to go!!
     ```sh 
     pip install -r requirements.txt
     ```
+## Run Instructions
+**1. Clone this GitHub project.**
 
-
-**Following Steps to be done on Google Cloud console:**
-1. Create a Project 
-2. Setup Billing 
-3. Enable geocoding API and distancematrix API
-4. Generate API key-
-    Refer to [this](https://developers.google.com/maps/documentation/geocoding/get-api-key) link for more information about the same.
-6. Store the API key in the following format-
-    File name: key.json \
-    File Content: {"key": "your api key here"} \
-    **Key needs to be stored in the json folder.**
+**2. Following Steps to be done on Google Cloud console:**
+  1. Create a Project 
+  2. Setup Billing 
+  3. Enable geocoding API and distancematrix API
+  4. Generate API key-
+      Refer to [this](https://developers.google.com/maps/documentation/geocoding/get-api-key) link for more information about the same.
+  5. Store the API key in the following format-
+      File name: key.json \
+      File Content: {"key": "your api key here"}
+  6. Key needs to be stored in the json folder.
+  
+**3. Run command- python MapThat.py**
 
 
 ## How to Contribute?
