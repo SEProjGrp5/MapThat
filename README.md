@@ -2,6 +2,8 @@
   <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/MAPTHAT.gif.gif" width=800px height=300px>
 </h1>
 
+### *If you and time have a spat, use MapThat*
+
 # Python Application to add travel time to google calendar
 
 [![GitHub license](https://img.shields.io/github/license/SEProjGrp5/MapThat)](https://github.com/SEProjGrp5/MapThat/blob/main/LICENSE)
@@ -24,7 +26,7 @@ To maintan privacy of users, we will directly store the data in the users accoun
 
 # VISUAL REPRESENTATION
 
-<a href="https://www.youtube.com/watch?v=EBHrUYNMrJs" target="_blank"><img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/screenshot.PNG" width="450" alt="KDD promo video"/></a>
+<a href="https://www.youtube.com/watch?v=EBHrUYNMrJs" target="_blank"><img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/screenshot.PNG" width="450" alt="Visual Representation for MapThat"/></a>
 
 
 # BUILT WITH
