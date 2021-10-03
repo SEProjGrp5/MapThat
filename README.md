@@ -78,7 +78,6 @@ Follow the instructuions given below and you are good to go!!
 **3. Run command- python MapThat.py**
 
 # WORKING MODEL
-<details>
   <summary>Working Model of the project </summary>
   <details>
   1. Sample Event without location<br/>
@@ -120,7 +119,6 @@ Follow the instructuions given below and you are good to go!!
   13. Calendar after running application<br/>
   <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG14.jpeg" ><br/>
     <br/>
-</details>
 </details>
 
 # HOW TO CONTRIBUTE?
