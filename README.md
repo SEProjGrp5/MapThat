@@ -14,7 +14,7 @@
 
 Double booking a time-slot is a common mistake that us humans make all the time! We also don't take into account that we are not FLASH and that we need some time to travel from point A to point B. While scheduling appointments on google calendar, while enrolling into two consecutive classes in two different buildings; the travel time between appointments is not taken into consideration.
 
-We aim to develop a tool which will read the google calendar appointments to determing the location and calculate the average travel time to the appointment from either a predetermined location or the location of the previous appointment and block the time needed on google calendar.
+We aim to develop a tool which will read the google calendar appointments to determe the location and calculate the average travel time to the appointment from either a predetermined location or the location of the previous appointment and block the time needed on google calendar.
 
 We have implemented it as a python application which will be connected to the google calendar and google maps. 
 
@@ -81,37 +81,44 @@ Follow the instructuions given below and you are good to go!!
 <details>
   <summary>Working Model of the project </summary>
   <details>
-  1. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG1.jpeg"><br/>
+  1. Sample Event without location<br/>
+  <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG1.jpeg"><br/>
     <br/>
-  2. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG2.jpeg" ><br/>
+  2. Sample Event with location<br/>
+  <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG2.jpeg" ><br/>
     <br/>
-  3. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG3.jpeg" ><br/>
+  3. Screenshot of Calendar before running the program<br/>
+  <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG3.jpeg" ><br/>
     <br/>
-  4. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG4.jpeg" ><br/>
+  4. Running the Python File<br/>
+  <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG8.jpeg" ><br/>
     <br/>
-  5. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG5.jpeg" ><br/>
+  5. Google Account Login Funnel Step 1<br/>
+  <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG4.jpeg" ><br/>
     <br/>
-  6. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG6.jpeg" ><br/>
+  6. Google Account Login Funnel Step 2<br/>
+  <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG5.jpeg" ><br/>
     <br/>
-  7. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG7.jpeg" ><br/>
+  7. Google Account Login Funnel Step 3<br/>
+  <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG6.jpeg" ><br/>
     <br/>
-  8. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG8.jpeg" ><br/>
+  8. Google Account Login Funnel Step 4<br/>
+  <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG7.jpeg" ><br/>
     <br/>
-  9. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG9.jpeg" ><br/>
+  9.  Setting up default information and checking calndar events<br/>
+  <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG12.jpeg" ><br/>
     <br/>
-  10. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG10.jpeg" ><br/>
+  10. Details of events traversed and events created<br/>
+  <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG13.jpeg" ><br/>
     <br/>
-  11. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG11.jpeg" ><br/>
+  11. Details of events traversed and events created<br/>
+  <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG16.jpeg" ><br/>
     <br/>
-  12. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG12.jpeg" ><br/>
+  12. Exiting the application<br/>
+  <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG15.jpeg" ><br/>
     <br/>
-  13. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG13.jpeg" ><br/>
-    <br/>
-  14. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG14.jpeg" ><br/>
-    <br/>
-  15. <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG15.jpeg" ><br/>
-    <br/>
-  16 <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG16.jpeg" ><br/>
+  13. Calendar after running application<br/>
+  <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG14.jpeg" ><br/>
     <br/>
 </details>
 </details>
