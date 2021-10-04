@@ -79,7 +79,6 @@ Follow the instructuions given below and you are good to go!!
 
 # WORKING MODEL
   <summary>Working Model of the project </summary>
-  <details>
   1. Sample Event without location<br/>
   <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG1.jpeg"><br/>
     <br/>
@@ -119,7 +118,6 @@ Follow the instructuions given below and you are good to go!!
   13. Calendar after running application<br/>
   <img src="https://github.com/SEProjGrp5/MapThat/blob/main/Images/IMG14.jpeg" ><br/>
     <br/>
-</details>
 
 # HOW TO CONTRIBUTE?
 The [CONTRIBUTING.md](https://github.com/SEProjGrp5/MapThat/blob/main/CONTRIBUTING.md) given in this repository has instructions on how to contribute to this repo. Kindly refer to this file and our [Code of Conduct guidelines](https://github.com/SEProjGrp5/MapThat/blob/main/CODE_OF_CONDUCT.md).
