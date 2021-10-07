@@ -1,11 +1,8 @@
-geographiclib==1.52
-geopy==2.2.0
 google-api-core==1.24.1
 google-api-python-client==2.23.0
 google-auth==1.24.0
 google-auth-httplib2==0.1.0
 google-auth-oauthlib==0.4.6
-google-cloud-bigquery==2.6.1
 google-cloud-core==1.5.0
 google-crc32c==1.1.0
 google-resumable-media==1.2.0
@@ -14,10 +11,8 @@ googlemaps==4.5.3
 numpy==1.19.4
 oauthlib==3.1.0
 pandas==1.1.5
-pandas-gbq==0.2.0
 pycodestyle==2.7.0
 pycparser==2.20
 pylint==2.11.1
 python-dateutil==2.8.1
 pytz==2020.4
-urllib3==1.26.5
