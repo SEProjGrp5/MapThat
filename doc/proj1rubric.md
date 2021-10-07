@@ -13,7 +13,7 @@ sum of self assessment score = 79/81
 | Docs: doco generated , format not ugly | 3 | evidence in [Readme](https://github.com/SEProjGrp5/MapThat/blob/main/README.md)|
 | Docs: what: point descriptions of each class/function (in isolation) | 3 | [FunctionDescription](https://github.com/SEProjGrp5/MapThat/blob/main/doc/functionDescription.md)|
 | Docs: how: for common use cases X,Y,Z mini-tutorials showing worked examples on how to do X,Y,Z | 3 | evidence in [Readme](https://github.com/SEProjGrp5/MapThat/blob/main/README.md)|
-| Docs: why: docs tell a story, motivate the whole thing, deliver a punchline that makes you want to rush out and use the thing | 3 | https://github.com/SEProjGrp5/MapThat/tree/main/doc |
+| Docs: why: docs tell a story, motivate the whole thing, deliver a punchline that makes you want to rush out and use the thing | 3 |  evidence in [Readme](https://github.com/SEProjGrp5/MapThat/blob/main/README.md)|
 | Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code | 3 | https://github.com/SEProjGrp5/MapThat/blob/main/README.md |
 | Use of version control tools | 3 | https://github.com/SEProjGrp5/MapThat |
 | Use of style checkers | 3 | [Pylint] [https://github.com/SEProjGrp5/MapThat/blob/main/doc/Pylint%20Execution%20Result.jpeg] was used to check for code style |
